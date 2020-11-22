@@ -53,3 +53,9 @@ Weapons
 
 - properties
   - damage (range)
+
+NOTES
+
+- refactor to pass a player object (selected namem img from FE) (Currently passing a player name, and hard coding images to game class)
+- add 'setter' for health reduction
+-

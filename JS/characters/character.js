@@ -4,7 +4,6 @@
 //   - name
 //   - health
 //   - weapon
-//   - equipment
 // - methods
 //   - attack
 //   - get attacked (health reduction)

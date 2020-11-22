@@ -1,49 +1,58 @@
-// game class methods (main game loop in app.js)
-
-// select weapons
-// create characters
-// set the DOM
-
-// game round
-// attack method:
-// player attack enemy (rand num in weapon attk range)
-// enemy attack player (rand num in weapon attk range)
-
-// check for win, declare winner or loop again
-
 // import modules
 import { Character } from "./characters/character.js";
 
-// set DOM variables
-const playerDOM = document.querySelector(".player");
-const enemyDOM = document.querySelector(".enemey");
-
 // ===== Create ====== //
 
-export function newGame() {
-  // object for each player
-  const [player, enemy] = createChars("steve", "bad-boy");
-  // Update DOM for both players
-  updateCharDOM(player, playerDOM);
-  updateCharDOM(enemy, enemyDOM);
-}
+export class Game {
+  constructor(name1, name2) {
+    this.player = new Character(name1, "./assets/k1.png");
+    this.enemy = new Character(name2, "./assets/k2.png");
+    this.playerDOM = document.querySelector(".player");
+    this.enemyDOM = document.querySelector(".enemey");
+  }
+  // initiate game on page
+  init() {
+    this.updateCharDOM(this.player, this.playerDOM);
+    this.updateCharDOM(this.enemy, this.enemyDOM);
+  }
+  // attack round
+  attackRound() {
+    //  calc rand attack
+    this.attack(this.player, this.enemy);
+    //  check for kill/win
+    if (this.enemy.health > 0) {
+      // update DOM
+      this.updateCharDOM(this.enemy, this.enemyDOM);
+    } else {
+      this.playerDead(this.enemy, this.enemyDOM);
+      this.winner(this.player);
+    }
+  }
 
-// set data
-// create character objects, takes
-function createChars(name1, name2) {
-  const player = new Character(name1, "./assets/k1.png");
-  const enemy = new Character(name2, "./assets/k2.png");
-  return [player, enemy];
-}
+  // game end
+  winner(player) {
+    console.log(`${player} wins`);
+  }
 
-// set DOM
-// takes player obj & DOM selector
-function updateCharDOM(char, element) {
-  console.log(char);
-  element.innerHTML = `<img src="${char.img}" alt="" class="char-img" />
-  <div>
-    <p>Health: ${char.health}</p>
-    <p>Weapon: ${char.weapon.name} (dmg: ${char.weapon.dmgMin}-${char.weapon.dmgMax})</p>
-    <p>Name: ${char.name}</p>
-  </div>`;
+  attack(charAttacker, charDefender) {
+    // determine attack dmg, rnd value between attackers weapon dmg range
+    const max = charAttacker.weapon.dmgMax;
+    const min = charAttacker.weapon.dmgMin;
+    const dmg = Math.floor(Math.random() * (max - min + 1) + min);
+    // reduce defender health
+    charDefender.health -= dmg;
+  }
+  playerDead(char, element) {
+    char.health = "DEAD";
+    this.updateCharDOM(char, element);
+  }
+
+  updateCharDOM(char, element) {
+    element.innerHTML = `<img src="${char.img}" alt="" class="char-img" />
+    <div>
+      <p>Health: ${char.health}</p>
+      <p>Weapon: ${char.weapon.name} (dmg: ${char.weapon.dmgMin}-${char.weapon.dmgMax})</p>
+      <p>Name: ${char.name}</p>
+    </div>`;
+  }
 }
