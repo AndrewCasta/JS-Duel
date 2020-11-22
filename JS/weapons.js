@@ -1,0 +1,1 @@
+// Weapons - array of objects

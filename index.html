@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- game bar container -->
+      <article class="game-bar">
+        <!-- start bar -->
+        <div class="game-bar_start">
+          <button class="start">Start</button>
+        </div>
+        <!-- playing bar -->
+        <div class="game-bar_play">
+          <button class="start">Attack</button>
+        </div>
+        <!-- end game bar -->
+        <div class="game-bar_end">
+          <h3 class="game-winner">Winner: Player 1</h3>
+          <button class="start">Play again</button>
+        </div>
+      </article>
+      <article class="player">
+        <img src="./assets/k1.png" alt="" class="char-img char-img--p" />
+        <div class="player_stats">
+          <p class="player_health">Health: 100</p>
+          <p class="player_weapon">Weapon: Sword</p>
+          <p class="player_name">Name: Player 1</p>
+        </div>
+      </article>
+      <article class="enemey">
+        <img src="./assets/k2.png" alt="" class="char-img char-img--e" />
+        <div class="enemy_stats">
+          <p class="enemy_health">Health: 100</p>
+          <p class="enemy_weapon">Weapon: Sword</p>
+          <p class="enemy_name">Name: Enemy</p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
