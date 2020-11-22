@@ -1,8 +1,6 @@
 // import modules
 import { Character } from "./characters/character.js";
 
-// ===== Create ====== //
-
 export class Game {
   constructor(name1, name2) {
     this.player = new Character(name1, "./assets/k1.png");
@@ -11,36 +9,49 @@ export class Game {
     this.enemyDOM = document.querySelector(".enemey");
   }
   // initiate game on page
-  init() {
+  start() {
     this.updateCharDOM(this.player, this.playerDOM);
     this.updateCharDOM(this.enemy, this.enemyDOM);
   }
   // attack round
   attackRound() {
     //  calc rand attack
-    this.attack(this.player, this.enemy);
+    let end = this.attack(this.player, this.enemy, this.enemyDOM);
     //  check for kill/win
-    if (this.enemy.health > 0) {
-      // update DOM
-      this.updateCharDOM(this.enemy, this.enemyDOM);
-    } else {
-      this.playerDead(this.enemy, this.enemyDOM);
-      this.winner(this.player);
-    }
+    if (end) return this.player;
+    //  calc rand attack
+    end = this.attack(this.enemy, this.player, this.playerDOM);
+    //  check for kill/win
+    if (end) return this.enemy;
+  }
+
+  // reset
+  reset() {
+    this.playerDOM.innerHTML = "";
+    this.enemyDOM.innerHTML = "";
   }
 
   // game end
   winner(player) {
-    console.log(`${player} wins`);
+    console.log(`${player.name} wins`);
   }
 
-  attack(charAttacker, charDefender) {
+  attack(charAttacker, charDefender, charDefenderDOM) {
     // determine attack dmg, rnd value between attackers weapon dmg range
     const max = charAttacker.weapon.dmgMax;
     const min = charAttacker.weapon.dmgMin;
     const dmg = Math.floor(Math.random() * (max - min + 1) + min);
     // reduce defender health
     charDefender.health -= dmg;
+    // check for kill/win
+    if (charDefender.health > 0) {
+      // update DOM
+      this.updateCharDOM(charDefender, charDefenderDOM);
+    } else {
+      this.playerDead(charDefender, charDefenderDOM);
+      this.winner(charAttacker);
+      return "end";
+    }
   }
   playerDead(char, element) {
     char.health = "DEAD";

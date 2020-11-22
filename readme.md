@@ -5,6 +5,13 @@ I want to practise JS OOP
 Class creation, using ES6 syntax, arrows etc
 JS modules
 
+## NOTES/ideas
+
+- option to select name, weapon, img
+  - refactor to pass a player object (Currently passing a player name, and hard coding images to game class)
+- add 'setter' for health reduction
+- get enemy from API?
+
 ## Design
 
 Starts empty
@@ -53,9 +60,3 @@ Weapons
 
 - properties
   - damage (range)
-
-NOTES
-
-- refactor to pass a player object (selected namem img from FE) (Currently passing a player name, and hard coding images to game class)
-- add 'setter' for health reduction
--
