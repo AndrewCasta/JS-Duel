@@ -13,6 +13,7 @@ body {
   background: $clr-game-bg;
   border-radius: 25px;
   padding: 2rem;
+  min-width: 600px;
   width: 80%;
   max-width: 1170px;
   display: grid;
@@ -31,19 +32,14 @@ body {
   margin-bottom: 1rem;
   text-align: center;
 
-  &_start {
-  }
-  &_play {
-    display: none;
-  }
-  &_end {
+  &--hidden {
     display: none;
   }
 }
 
 .char-img {
   width: 300px;
-  &--e {
+  &--enemy {
     transform: scaleX(-1);
   }
 }

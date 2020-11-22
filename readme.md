@@ -22,8 +22,10 @@ Game
 - methods
   - start game
     - assign random weapon & enemy
-  - game rounds
-  - check for win, declare winner
+  - game round
+    - player attack enemy (rand num in weapon attk range)
+    - enemy attack player (rand num in weapon attk range)
+  - check for win, declare winner or loop again
 
 Player
 
@@ -42,6 +44,7 @@ Enemies
   - name
   - health
   - weapon
+  - equipment
 - methods
   - attack
   - get attacked (health reduction)
@@ -49,4 +52,4 @@ Enemies
 Weapons
 
 - properties
-  - damage
+  - damage (range)

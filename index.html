@@ -12,34 +12,21 @@
       <article class="game-bar">
         <!-- start bar -->
         <div class="game-bar_start">
-          <button class="start">Start</button>
+          <button class="start-btn">Start</button>
         </div>
         <!-- playing bar -->
-        <div class="game-bar_play">
-          <button class="start">Attack</button>
+        <div class="game-bar_play game-bar--hidden">
+          <button class="attack-btn">Attack</button>
         </div>
         <!-- end game bar -->
-        <div class="game-bar_end">
+        <div class="game-bar_end game-bar--hidden">
           <h3 class="game-winner">Winner: Player 1</h3>
-          <button class="start">Play again</button>
+          <button class="again-btn">Play again</button>
         </div>
       </article>
-      <article class="player">
-        <img src="./assets/k1.png" alt="" class="char-img char-img--p" />
-        <div class="player_stats">
-          <p class="player_health">Health: 100</p>
-          <p class="player_weapon">Weapon: Sword</p>
-          <p class="player_name">Name: Player 1</p>
-        </div>
-      </article>
-      <article class="enemey">
-        <img src="./assets/k2.png" alt="" class="char-img char-img--e" />
-        <div class="enemy_stats">
-          <p class="enemy_health">Health: 100</p>
-          <p class="enemy_weapon">Weapon: Sword</p>
-          <p class="enemy_name">Name: Enemy</p>
-        </div>
-      </article>
+      <article class="player"></article>
+      <article class="enemey"></article>
     </div>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
