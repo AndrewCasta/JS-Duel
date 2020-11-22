@@ -1,19 +1,27 @@
 // app.js will host most of the DOM work, interface/btns etc
 
-import { createChars, updateCharDOM } from "./JS/game.js";
+import { newGame } from "./JS/game.js";
 
 // set variables
-const playerDOM = document.querySelector(".player");
-const enemyDOM = document.querySelector(".enemey");
 const startBtn = document.querySelector(".start-btn");
 const attackBtn = document.querySelector(".attack-btn");
 const againBtn = document.querySelector(".again-btn");
 
 // set-up
 startBtn.addEventListener("click", () => {
-  // object for each player
-  const [player, enemy] = createChars("steve", "bad-boy");
-  // Update DOM for both players
-  updateCharDOM(player, playerDOM);
-  updateCharDOM(enemy, enemyDOM);
+  newGame();
+  // change game-bar to play
+  startBtn.parentElement.classList.add("game-bar--hidden");
+  attackBtn.parentElement.classList.remove("game-bar--hidden");
 });
+
+// attack loop
+attackBtn.addEventListener("click", () => attackRnd());
+
+// attackRound() {
+//   // attack(charAttacker, charDefender)
+//   //  calc rand attack
+//   //  check for kill/win
+//   //  update dom
+//   //
+// }

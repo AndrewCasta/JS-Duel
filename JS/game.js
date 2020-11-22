@@ -11,12 +11,26 @@
 
 // check for win, declare winner or loop again
 
+// import modules
 import { Character } from "./characters/character.js";
+
+// set DOM variables
+const playerDOM = document.querySelector(".player");
+const enemyDOM = document.querySelector(".enemey");
 
 // ===== Create ====== //
 
+export function newGame() {
+  // object for each player
+  const [player, enemy] = createChars("steve", "bad-boy");
+  // Update DOM for both players
+  updateCharDOM(player, playerDOM);
+  updateCharDOM(enemy, enemyDOM);
+}
+
 // set data
-export function createChars(name1, name2) {
+// create character objects, takes
+function createChars(name1, name2) {
   const player = new Character(name1, "./assets/k1.png");
   const enemy = new Character(name2, "./assets/k2.png");
   return [player, enemy];
@@ -24,7 +38,7 @@ export function createChars(name1, name2) {
 
 // set DOM
 // takes player obj & DOM selector
-export function updateCharDOM(char, element) {
+function updateCharDOM(char, element) {
   console.log(char);
   element.innerHTML = `<img src="${char.img}" alt="" class="char-img" />
   <div>
