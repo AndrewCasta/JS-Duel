@@ -8,12 +8,17 @@ Async JS (ajax & data handling)
 
 ## TODO
 
+- Weapon data (API)
+- weapon random selection
+- Different background options
+- Animate/flash damage
+
+### Done
+
 - name input at start
 - function for swapping game-bar
 - Attack animation
 - Disable attack button until attack is finished
-- Weapon data (API)
-- weapon random selection
 
 ## NOTES/ideas
 

@@ -1,16 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Caveat", cursive;
+}
+
 body {
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
   place-items: center;
   background: linear-gradient(to top, #5d26c1, #a17fe0, #59c173);
 }
 
+.button {
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+  background: #a82727;
+  color: white;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.button:disabled {
+  background: grey;
+}
+
 .game-container {
   background: white;
+  font-size: 2rem;
   border-radius: 25px;
   padding: 2rem;
-  min-width: 600px;
   width: 80%;
+  min-width: 800px;
   max-width: 1170px;
   display: grid;
   place-items: center;
@@ -31,6 +54,7 @@ body {
 }
 .game-bar #playerName {
   margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .char-img {
@@ -40,7 +64,10 @@ body {
   transform: scaleX(-1);
 }
 .char-img--attack-right-animation {
-  animation: 1s attack-right;
+  animation: 0.5s attack-right;
+}
+.char-img--attack-left-animation {
+  animation: 0.5s attack-left;
 }
 
 .player {

@@ -5,8 +5,8 @@
 //   - health
 //   - weapon
 // - methods
-//   - attack
-//   - get attacked (health reduction)
+//   - get weapon
+//   - health reduction - getter/setter
 
 export class Character {
   constructor(name, img, health = 100) {

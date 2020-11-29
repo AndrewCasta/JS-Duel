@@ -1,38 +1,38 @@
 // app.js will host most of the DOM work, interface/btns etc
 
 import { Game } from "./JS/game.js";
+import { changeGameBar } from "./JS/utils.js";
 
 // set variables
-const startBtn = document.querySelector(".start-btn");
-const attackBtn = document.querySelector(".attack-btn");
-const againBtn = document.querySelector(".again-btn");
+const startButton = document.querySelector(".start-button");
+const attackButton = document.querySelector(".attack-button");
+const againButton = document.querySelector(".again-button");
 const winnerDOM = document.querySelector(".game-winner");
 const playerName = document.querySelector("#playerName");
 
 let game;
 
 // Start Game
-startBtn.addEventListener("click", () => {
-  game = new Game(playerName.value, `Evil-${playerName.value}`);
+startButton.addEventListener("click", () => {
+  game = new Game(playerName.value, `<strong>Evil</strong>-${playerName.value}`);
   game.start();
   // change game-bar to play
-  startBtn.parentElement.classList.add("game-bar--hidden");
-  attackBtn.parentElement.classList.remove("game-bar--hidden");
+  changeGameBar(startButton, attackButton);
 });
 
 // Attack loop
-attackBtn.addEventListener("click", async () => {
+attackButton.addEventListener("click", async () => {
+  attackButton.disabled = true;
   let winner = await game.attackRound();
   if (winner) {
     winnerDOM.textContent = `Winner: ${winner.name}`;
-    attackBtn.parentElement.classList.add("game-bar--hidden");
-    againBtn.parentElement.classList.remove("game-bar--hidden");
+    changeGameBar(attackButton, againButton);
   }
+  attackButton.disabled = false;
 });
 
 // Play again / Reset
-againBtn.addEventListener("click", () => {
+againButton.addEventListener("click", () => {
   game.reset();
-  againBtn.parentElement.classList.add("game-bar--hidden");
-  startBtn.parentElement.classList.remove("game-bar--hidden");
+  changeGameBar(againButton, startButton);
 });
