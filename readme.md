@@ -1,3 +1,6 @@
+#DEMO: 
+https://feintrabbit.github.io/JS-Duel/
+
 ## Outcomes
 
 I want to practise JS OOP & Async
