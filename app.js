@@ -7,12 +7,13 @@ const startBtn = document.querySelector(".start-btn");
 const attackBtn = document.querySelector(".attack-btn");
 const againBtn = document.querySelector(".again-btn");
 const winnerDOM = document.querySelector(".game-winner");
+const playerName = document.querySelector("#playerName");
 
 let game;
 
 // Start Game
 startBtn.addEventListener("click", () => {
-  game = new Game("steve", "not-steve");
+  game = new Game(playerName.value, `Evil-${playerName.value}`);
   game.start();
   // change game-bar to play
   startBtn.parentElement.classList.add("game-bar--hidden");

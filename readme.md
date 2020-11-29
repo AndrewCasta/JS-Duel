@@ -1,16 +1,31 @@
 ## Outcomes
 
-I want to practise JS OOP
+I want to practise JS OOP & Async
 
 Class creation, using ES6 syntax, arrows etc
 JS modules
+Async JS (ajax & data handling)
+
+## TODO
+
+- name input at start
+- Attack animation
+- Weapon data (API)
+- weapon random selection
 
 ## NOTES/ideas
 
+game concepts
+
+- animation/visuals for attack and death
 - option to select name, weapon, img
   - refactor to pass a player object (Currently passing a player name, and hard coding images to game class)
+- multiple enemies in a row?
+
+techical
+
 - add 'setter' for health reduction
-- get enemy from API?
+- get enemy/image from API?
 
 ## Design
 

@@ -29,12 +29,18 @@ body {
 .game-bar--hidden {
   display: none;
 }
+.game-bar #playerName {
+  margin-bottom: 1rem;
+}
 
 .char-img {
   width: 300px;
 }
 .char-img--enemy {
   transform: scaleX(-1);
+}
+.char-img--attack-right-animation {
+  animation: 1s attack-right;
 }
 
 .player {
@@ -43,6 +49,23 @@ body {
 
 .enemey {
   grid-area: e;
+}
+
+@keyframes attack-right {
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes attack-left {
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -16,11 +16,11 @@ export class Game {
   // attack round
   attackRound() {
     //  calc rand attack
-    let end = this.attack(this.player, this.enemy, this.enemyDOM);
+    let end = this.attack(this.player, this.playerDOM, this.enemy, this.enemyDOM);
     //  check for kill/win
     if (end) return this.player;
     //  calc rand attack
-    end = this.attack(this.enemy, this.player, this.playerDOM);
+    end = this.attack(this.enemy, this.enemyDOM, this.player, this.playerDOM);
     //  check for kill/win
     if (end) return this.enemy;
   }
@@ -36,23 +36,30 @@ export class Game {
     console.log(`${player.name} wins`);
   }
 
-  attack(charAttacker, charDefender, charDefenderDOM) {
+  attack(charAttacker, charAttackerDOM, charDefender, charDefenderDOM) {
     // determine attack dmg, rnd value between attackers weapon dmg range
     const max = charAttacker.weapon.dmgMax;
     const min = charAttacker.weapon.dmgMin;
     const dmg = Math.floor(Math.random() * (max - min + 1) + min);
+
+    // animate attack
+    const charImg = charAttackerDOM.querySelector(".char-img");
+    charImg.classList.add("char-img--attack-right-animation");
+
     // reduce defender health
     charDefender.health -= dmg;
     // check for kill/win
     if (charDefender.health > 0) {
       // update DOM
       this.updateCharDOM(charDefender, charDefenderDOM);
+      return;
     } else {
       this.playerDead(charDefender, charDefenderDOM);
       this.winner(charAttacker);
       return "end";
     }
   }
+
   playerDead(char, element) {
     char.health = "DEAD";
     this.updateCharDOM(char, element);
