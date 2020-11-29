@@ -14,7 +14,7 @@ let game;
 
 // Start Game
 startButton.addEventListener("click", () => {
-  game = new Game(playerName.value, `<strong>Evil</strong>-${playerName.value}`);
+  game = new Game(playerName.value, `Evil-${playerName.value}`);
   game.start();
   // change game-bar to play
   changeGameBar(startButton, attackButton);
@@ -25,7 +25,7 @@ attackButton.addEventListener("click", async () => {
   attackButton.disabled = true;
   let winner = await game.attackRound();
   if (winner) {
-    winnerDOM.textContent = `Winner: ${winner.name}`;
+    winnerDOM.innerHTML = `Winner: ${winner.name}`;
     changeGameBar(attackButton, againButton);
   }
   attackButton.disabled = false;
