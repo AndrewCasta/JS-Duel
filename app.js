@@ -21,8 +21,8 @@ startBtn.addEventListener("click", () => {
 });
 
 // Attack loop
-attackBtn.addEventListener("click", () => {
-  let winner = game.attackRound();
+attackBtn.addEventListener("click", async () => {
+  let winner = await game.attackRound();
   if (winner) {
     winnerDOM.textContent = `Winner: ${winner.name}`;
     attackBtn.parentElement.classList.add("game-bar--hidden");

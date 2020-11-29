@@ -9,7 +9,9 @@ Async JS (ajax & data handling)
 ## TODO
 
 - name input at start
+- function for swapping game-bar
 - Attack animation
+- Disable attack button until attack is finished
 - Weapon data (API)
 - weapon random selection
 

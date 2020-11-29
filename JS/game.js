@@ -14,13 +14,13 @@ export class Game {
     this.updateCharDOM(this.enemy, this.enemyDOM);
   }
   // attack round
-  attackRound() {
+  async attackRound() {
     //  calc rand attack
-    let end = this.attack(this.player, this.playerDOM, this.enemy, this.enemyDOM);
+    let end = await this.attack(this.player, this.playerDOM, this.enemy, this.enemyDOM);
     //  check for kill/win
     if (end) return this.player;
     //  calc rand attack
-    end = this.attack(this.enemy, this.enemyDOM, this.player, this.playerDOM);
+    end = await this.attack(this.enemy, this.enemyDOM, this.player, this.playerDOM);
     //  check for kill/win
     if (end) return this.enemy;
   }
@@ -36,29 +36,41 @@ export class Game {
     console.log(`${player.name} wins`);
   }
 
-  attack(charAttacker, charAttackerDOM, charDefender, charDefenderDOM) {
-    // determine attack dmg, rnd value between attackers weapon dmg range
-    const max = charAttacker.weapon.dmgMax;
-    const min = charAttacker.weapon.dmgMin;
-    const dmg = Math.floor(Math.random() * (max - min + 1) + min);
+  async attack(charAttacker, charAttackerDOM, charDefender, charDefenderDOM) {
+    return new Promise((resolve, reject) => {
+      // determine attack dmg, rnd value between attackers weapon dmg range
+      const max = charAttacker.weapon.dmgMax;
+      const min = charAttacker.weapon.dmgMin;
+      const dmg = Math.floor(Math.random() * (max - min + 1) + min);
 
-    // animate attack
-    const charImg = charAttackerDOM.querySelector(".char-img");
-    charImg.classList.add("char-img--attack-right-animation");
+      // animate attack
+      const charImg = charAttackerDOM.querySelector(".char-img");
+      charImg.classList.add("char-img--attack-right-animation");
+      setTimeout(() => {
+        charImg.classList.remove("char-img--attack-right-animation");
 
-    // reduce defender health
-    charDefender.health -= dmg;
-    // check for kill/win
-    if (charDefender.health > 0) {
-      // update DOM
-      this.updateCharDOM(charDefender, charDefenderDOM);
-      return;
-    } else {
-      this.playerDead(charDefender, charDefenderDOM);
-      this.winner(charAttacker);
-      return "end";
-    }
+        // >>> This is all now nested in the timeout, so that it doesn't happen until after the animation.
+
+        // reduce defender health
+        charDefender.health -= dmg;
+        // check for kill/win
+        if (charDefender.health > 0) {
+          // update DOM
+          this.updateCharDOM(charDefender, charDefenderDOM);
+          resolve();
+        } else {
+          this.playerDead(charDefender, charDefenderDOM);
+          this.winner(charAttacker);
+          resolve("end");
+        }
+      }, 1000);
+    });
   }
+  // attackAnimation(charAttacker) {
+  //   return new Promise ((resolve, reject) => {
+
+  //   })
+  // }
 
   playerDead(char, element) {
     char.health = "DEAD";
