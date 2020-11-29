@@ -1,4 +1,4 @@
-#DEMO: 
+# DEMO: 
 https://feintrabbit.github.io/JS-Duel/
 
 ## Outcomes
