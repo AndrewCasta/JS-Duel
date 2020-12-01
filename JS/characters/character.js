@@ -19,9 +19,7 @@ export class Character {
     this.weapon = this.getWeapon();
   }
   getWeapon() {
-    const weapon = weapons[getRandomIndex(weapons)];
-    console.log(`allocated ${weapon.name}`);
-    return weapon;
+    return weapons[getRandomIndex(weapons)];
   }
   get health() {
     return this._health;

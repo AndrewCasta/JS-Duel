@@ -15,6 +15,11 @@ $gradient-magic: linear-gradient(to top, #5d26c1, #a17fe0, #59c173);
   font-family: $font-heading;
 }
 
+img {
+  width: 100%;
+  display: block;
+}
+
 body {
   height: 100vh;
   display: grid;
@@ -53,6 +58,14 @@ body {
     "p e";
 }
 
+.player {
+  grid-area: p;
+}
+
+.enemey {
+  grid-area: e;
+}
+
 .game-bar {
   grid-area: bar;
   width: 100%;
@@ -68,6 +81,20 @@ body {
   #playerName {
     margin-bottom: 1rem;
     font-size: 1.5rem;
+  }
+}
+
+.damage-flash {
+  visibility: hidden;
+  text-align: center;
+  margin: 0.3rem 0.5rem;
+  color: white;
+  background-color: #da1616;
+  border-radius: 5px;
+  // transition: all 0.5s ease-in;
+
+  &--unhide {
+    visibility: visible;
   }
 }
 
@@ -89,16 +116,8 @@ body {
     transform: rotate(-90deg) translateX(-50px);
   }
   &--enemy-dead {
-    transform: rotate(90deg) translateX(-50px);
+    transform: rotate(90deg) translateX(50px);
   }
-}
-
-.player {
-  grid-area: p;
-}
-
-.enemey {
-  grid-area: e;
 }
 
 @keyframes attack-right {

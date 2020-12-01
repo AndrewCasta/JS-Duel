@@ -6,6 +6,11 @@
   font-family: "Caveat", cursive;
 }
 
+img {
+  width: 100%;
+  display: block;
+}
+
 body {
   height: 100vh;
   display: grid;
@@ -41,6 +46,14 @@ body {
   grid-template-areas: "bar bar" "p e";
 }
 
+.player {
+  grid-area: p;
+}
+
+.enemey {
+  grid-area: e;
+}
+
 .game-bar {
   grid-area: bar;
   width: 100%;
@@ -55,6 +68,18 @@ body {
 .game-bar #playerName {
   margin-bottom: 1rem;
   font-size: 1.5rem;
+}
+
+.damage-flash {
+  visibility: hidden;
+  text-align: center;
+  margin: 0.3rem 0.5rem;
+  color: white;
+  background-color: #da1616;
+  border-radius: 5px;
+}
+.damage-flash--unhide {
+  visibility: visible;
 }
 
 .char-img {
@@ -74,15 +99,7 @@ body {
   transform: rotate(-90deg) translateX(-50px);
 }
 .char-img--enemy-dead {
-  transform: rotate(90deg) translateX(-50px);
-}
-
-.player {
-  grid-area: p;
-}
-
-.enemey {
-  grid-area: e;
+  transform: rotate(90deg) translateX(50px);
 }
 
 @keyframes attack-right {

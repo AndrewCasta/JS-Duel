@@ -33,7 +33,7 @@ export class Game {
       const dmg = Math.floor(Math.random() * (max - min + 1) + min);
 
       // animate attack
-      await this.attackAnimation(charAttackerDOM);
+      await this.attackAnimation(dmg, charAttackerDOM, charDefenderDOM);
 
       // reduce defender health
       charDefender.health -= dmg;
@@ -55,23 +55,29 @@ export class Game {
   // REF: https://blog.adriaan.io/make-async-await-work-in-promises.html
   // REF: https://stackoverflow.com/questions/21518381/proper-way-to-wait-for-one-function-to-finish-before-continuing
 
-  attackAnimation(charAttackerDOM) {
+  attackAnimation(dmg, charAttackerDOM, charDefenderDOM) {
     return new Promise((resolve, reject) => {
       const charImg = charAttackerDOM.querySelector(".char-img");
       const playerCheck = charAttackerDOM.classList.contains("player");
+      const flash = charDefenderDOM.querySelector(".damage-flash");
+      flash.textContent = dmg;
       if (playerCheck) {
         setTimeout(() => {
           charImg.classList.add("char-img--attack-right-animation");
+          flash.classList.add("damage-flash--unhide");
           setTimeout(() => {
             charImg.classList.remove("char-img--attack-right-animation");
+            flash.classList.remove("damage-flash--unhide");
             resolve();
           }, 600);
         }, 300);
       } else {
         setTimeout(() => {
           charImg.classList.add("char-img--attack-left-animation");
+          flash.classList.add("damage-flash--unhide");
           setTimeout(() => {
             charImg.classList.remove("char-img--attack-left-animation");
+            flash.classList.remove("damage-flash--unhide");
             resolve();
           }, 600);
         }, 300);
@@ -102,6 +108,7 @@ export class Game {
 
   updateCharDOM(char, element) {
     element.innerHTML = `<img src="${char.img}" alt="" class="char-img" />
+    <div class="damage-flash">-</div>
     <div>
       <p>Health: ${char.health}</p>
       <p>Weapon: ${char.weapon.name}</p>
