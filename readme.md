@@ -12,11 +12,7 @@ Async JS (ajax & data handling)
 
 ## TODO
 
-- get/set HP
-- Weapon data (API)
-- weapon random selection
 - Different background options
-- Animate/flash damage
 
 ### Done
 
@@ -24,6 +20,10 @@ Async JS (ajax & data handling)
 - function for swapping game-bar
 - Attack animation
 - Disable attack button until attack is finished
+- get/set HP
+- Weapon data (API)
+- weapon random selection
+- Animate/flash damage
 
 ## NOTES/ideas
 

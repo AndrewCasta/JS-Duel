@@ -16,13 +16,13 @@ export class Game {
   // attack round
   async attackRound() {
     //  calc rand attack
-    let gameEnd = await this.attack(this.player, this.playerDOM, this.enemy, this.enemyDOM);
+    let winner = await this.attack(this.player, this.playerDOM, this.enemy, this.enemyDOM);
     //  check for kill/win
-    if (gameEnd) return this.player;
+    if (winner) return this.player;
     //  calc rand attack
-    gameEnd = await this.attack(this.enemy, this.enemyDOM, this.player, this.playerDOM);
+    winner = await this.attack(this.enemy, this.enemyDOM, this.player, this.playerDOM);
     //  check for kill/win
-    if (gameEnd) return this.enemy;
+    if (winner) return this.enemy;
   }
 
   attack(charAttacker, charAttackerDOM, charDefender, charDefenderDOM) {
@@ -44,7 +44,6 @@ export class Game {
         resolve();
       } else {
         this.playerDead(charDefender, charDefenderDOM);
-        this.winner(charAttacker);
         resolve("gameEnd");
       }
     });
@@ -89,11 +88,6 @@ export class Game {
   reset() {
     this.playerDOM.innerHTML = "";
     this.enemyDOM.innerHTML = "";
-  }
-
-  // game end
-  winner(player) {
-    console.log(`${player.name} wins`);
   }
 
   playerDead(char, element) {
