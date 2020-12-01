@@ -1,4 +1,5 @@
-# DEMO: 
+# DEMO:
+
 https://feintrabbit.github.io/JS-Duel/
 
 ## Outcomes
@@ -11,6 +12,7 @@ Async JS (ajax & data handling)
 
 ## TODO
 
+- get/set HP
 - Weapon data (API)
 - weapon random selection
 - Different background options

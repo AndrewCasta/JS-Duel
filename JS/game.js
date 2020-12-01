@@ -6,7 +6,7 @@ export class Game {
     this.player = new Character(name1, "./assets/k1.png");
     this.enemy = new Character(name2, "./assets/k2.png");
     this.playerDOM = document.querySelector(".player");
-    this.enemyDOM = document.querySelector(".enemey");
+    this.enemyDOM = document.querySelector(".enemy");
   }
   // initiate game on page
   start() {
@@ -37,9 +37,9 @@ export class Game {
 
       // reduce defender health
       charDefender.health -= dmg;
-      // check for kill/win
+
+      // update HP & resolve for kill/win
       if (charDefender.health > 0) {
-        // update DOM
         this.updateCharDOM(charDefender, charDefenderDOM);
         resolve();
       } else {
@@ -94,9 +94,9 @@ export class Game {
     char.health = "DEAD";
     this.updateCharDOM(char, element);
     if (element.classList.contains("player")) {
-      element.querySelector("img").style.transform = "rotate(-90deg)";
+      element.querySelector("img").classList.add("char-img--player-dead");
     } else {
-      element.querySelector("img").style.transform = "rotate(90deg)";
+      element.querySelector("img").classList.add("char-img--enemy-dead");
     }
   }
 
@@ -104,7 +104,8 @@ export class Game {
     element.innerHTML = `<img src="${char.img}" alt="" class="char-img" />
     <div>
       <p>Health: ${char.health}</p>
-      <p>Weapon: ${char.weapon.name} (dmg: ${char.weapon.dmgMin}-${char.weapon.dmgMax})</p>
+      <p>Weapon: ${char.weapon.name}</p>
+      <p>Weapon Dmg: ${char.weapon.dmgMin} - ${char.weapon.dmgMax}</p>
       <p>Name: ${char.name}</p>
     </div>`;
   }

@@ -73,6 +73,9 @@ body {
 
 .char-img {
   width: 300px;
+
+  transition: all 0.5s ease-in;
+
   &--enemy {
     transform: scaleX(-1);
   }
@@ -81,6 +84,12 @@ body {
   }
   &--attack-left-animation {
     animation: 0.5s attack-left;
+  }
+  &--player-dead {
+    transform: rotate(-90deg) translateX(-50px);
+  }
+  &--enemy-dead {
+    transform: rotate(90deg) translateX(-50px);
   }
 }
 

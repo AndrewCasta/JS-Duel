@@ -8,16 +8,25 @@
 //   - get weapon
 //   - health reduction - getter/setter
 
+import { weapons } from "../weapons.js";
+import { getRandomIndex } from "../utils.js";
+
 export class Character {
   constructor(name, img, health = 100) {
     this.name = name;
     this.img = img;
-    this.health = health;
+    this._health = health;
     this.weapon = this.getWeapon();
   }
   getWeapon() {
-    console.log("allocated weapon");
-    const weapon = { name: "Sword", dmgMin: 5, dmgMax: 10 };
+    const weapon = weapons[getRandomIndex(weapons)];
+    console.log(`allocated ${weapon.name}`);
     return weapon;
+  }
+  get health() {
+    return this._health;
+  }
+  set health(value) {
+    this._health = value;
   }
 }

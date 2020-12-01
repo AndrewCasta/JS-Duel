@@ -1,9 +1,9 @@
-// app.js will host most of the DOM work, interface/btns etc
+// app.js will host most of the DOM work, interface/buttons etc
 
 import { Game } from "./JS/game.js";
 import { changeGameBar } from "./JS/utils.js";
 
-// set variables
+// set DOM variables
 const startButton = document.querySelector(".start-button");
 const attackButton = document.querySelector(".attack-button");
 const againButton = document.querySelector(".again-button");
