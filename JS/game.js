@@ -1,10 +1,12 @@
 // import modules
-import { Character } from "./characters/character.js";
+// import { Character } from "./characters/character.js";
+import { Player } from "./characters/player.js";
+import { Enemy } from "./characters/enemy.js";
 
 export class Game {
   constructor(name1, name2) {
-    this.player = new Character(name1, "./assets/k1.png");
-    this.enemy = new Character(name2, "./assets/k2.png");
+    this.player = new Player(name1, "./assets/k1.png");
+    this.enemy = new Enemy(name2, "./assets/k2.png");
     this.playerDOM = document.querySelector(".player");
     this.enemyDOM = document.querySelector(".enemy");
   }

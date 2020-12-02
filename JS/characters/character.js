@@ -1,13 +1,3 @@
-// main base character for player and non-player characters
-
-// - properties
-//   - name
-//   - health
-//   - weapon
-// - methods
-//   - get weapon
-//   - health reduction - getter/setter
-
 import { weapons } from "../weapons.js";
 import { getRandomIndex } from "../utils.js";
 
