@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
 
+// variables
 $font-heading: "Caveat", cursive;
-
 $game-background-colour: white;
 $button-main-colour: #a82727;
 $button-disabled-colour: grey;
 
 $gradient-magic: linear-gradient(to top, #5d26c1, #a17fe0, #59c173);
 
+// global styles
 * {
   margin: 0;
   padding: 0;
@@ -18,13 +19,6 @@ $gradient-magic: linear-gradient(to top, #5d26c1, #a17fe0, #59c173);
 img {
   width: 100%;
   display: block;
-}
-
-body {
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  background: $gradient-magic;
 }
 
 .button {
@@ -40,6 +34,14 @@ body {
   &:disabled {
     background: $button-disabled-colour;
   }
+}
+
+// game styles
+main {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: $gradient-magic;
 }
 
 .game-container {
@@ -134,5 +136,24 @@ body {
   }
   100% {
     transform: translateX(0px);
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.background-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  &--background {
+    background: grey;
+    margin: 1rem;
   }
 }

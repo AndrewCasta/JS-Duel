@@ -1,5 +1,6 @@
 // app.js will host most of the DOM work, interface/buttons etc
 
+import "./JS/background.js";
 import { Game } from "./JS/game.js";
 import { changeGameBar } from "./JS/utils.js";
 

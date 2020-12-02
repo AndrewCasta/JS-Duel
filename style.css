@@ -11,13 +11,6 @@ img {
   display: block;
 }
 
-body {
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(to top, #5d26c1, #a17fe0, #59c173);
-}
-
 .button {
   font-family: "Caveat", cursive;
   font-size: 2rem;
@@ -30,6 +23,13 @@ body {
 }
 .button:disabled {
   background: grey;
+}
+
+main {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(to top, #5d26c1, #a17fe0, #59c173);
 }
 
 .game-container {
@@ -117,6 +117,22 @@ body {
   100% {
     transform: translateX(0px);
   }
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.background-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.button--background {
+  background: grey;
+  margin: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

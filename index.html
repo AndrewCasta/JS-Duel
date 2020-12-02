@@ -7,28 +7,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="game-container">
-      <!-- game bar container -->
-      <article class="game-bar">
-        <!-- start bar -->
-        <div class="game-bar_start">
-          <h2>New Game</h2>
-          <input type="text" placeholder="Player Name.." id="playerName" /> <br />
-          <button class="start-button button">Fight!</button>
-        </div>
-        <!-- playing bar -->
-        <div class="game-bar_play game-bar--hidden">
-          <button class="attack-button button">Attack!</button>
-        </div>
-        <!-- end game bar -->
-        <div class="game-bar_end game-bar--hidden">
-          <h3 class="game-winner"></h3>
-          <button class="again-button button">Play again?</button>
-        </div>
-      </article>
-      <article class="player"></article>
-      <article class="enemy"></article>
-    </div>
-    <script type="module" src="./app.js"></script>
+    <main>
+      <div class="game-container">
+        <!-- game bar container -->
+        <article class="game-bar">
+          <!-- start bar -->
+          <div class="game-bar_start">
+            <h2>New Game</h2>
+            <input type="text" placeholder="Player Name.." id="playerName" autocomplete="off" /> <br />
+            <button class="start-button button">Fight!</button>
+          </div>
+          <!-- playing bar -->
+          <div class="game-bar_play game-bar--hidden">
+            <button class="attack-button button">Attack!</button>
+          </div>
+          <!-- end game bar -->
+          <div class="game-bar_end game-bar--hidden">
+            <h3 class="game-winner"></h3>
+            <button class="again-button button">Play again?</button>
+          </div>
+        </article>
+        <article class="player"></article>
+        <article class="enemy"></article>
+      </div>
+      <script type="module" src="./app.js"></script>
+    </main>
+    <footer>
+      <div class="background-buttons"></div>
+    </footer>
   </body>
 </html>

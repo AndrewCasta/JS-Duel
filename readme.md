@@ -12,7 +12,7 @@ Async JS (ajax & data handling)
 
 ## TODO
 
-- Different background options
+- inherit player & enemy objects from character
 
 ### Done
 
@@ -24,6 +24,7 @@ Async JS (ajax & data handling)
 - Weapon data (API)
 - weapon random selection
 - Animate/flash damage
+- Different background options
 
 ## NOTES/ideas
 
