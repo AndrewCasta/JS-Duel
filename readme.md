@@ -1,6 +1,6 @@
 # DEMO:
 
-https://feintrabbit.github.io/JS-Duel/
+https://andrewcasta.github.io/JS-Duel/
 
 ## Outcomes
 
